@@ -9,7 +9,7 @@ const drawerWidth = 240;
 
 const Sidebar: React.FC = () => {
     const [email, setEmail] = useState<string>("");
-    const navigate = useNavigate(); // Hook para navegação
+    const navigate = useNavigate();
 
     useEffect(() => {
         const token = localStorage.getItem("token") || "";
@@ -61,7 +61,7 @@ const Sidebar: React.FC = () => {
                     color="primary"
                     fullWidth
                     sx={{ marginTop: 'auto' }}
-                    onClick={handleBackToPage} // Chama a função de navegação
+                    onClick={handleBackToPage}
                 >
                  Sair
                 </Button>

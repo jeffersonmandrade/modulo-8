@@ -6,7 +6,7 @@ const RegisterButton: React.FC = () => {
     const navigate = useNavigate();
 
     const handleRedirect = () => {
-        navigate("/registro"); // Altere para o caminho da página do seu formulário
+        navigate("/registro");
     };
 
     return (

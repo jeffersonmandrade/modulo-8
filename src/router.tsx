@@ -11,7 +11,6 @@ function Routers(): JSX.Element {
         <BrowserRouter>
                 <Routes>
                     <Route path="/" Component={Login} />
-                    {/* Páginas protegidas */}
                     <Route
                         path="/home"
                         element={

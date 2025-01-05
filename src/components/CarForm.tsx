@@ -7,7 +7,7 @@ import {
     Grid,
     Container,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";  // Importa useNavigate
+import { useNavigate } from "react-router-dom";
 import CarService from "../services/CarService";
 
 const CarForm: React.FC = () => {
@@ -18,7 +18,7 @@ const CarForm: React.FC = () => {
     const [fabricante, setFabricante] = useState<string>("");
     const [pais, setPais] = useState<string>("");
 
-    const navigate = useNavigate();  // Cria a constante navigate
+    const navigate = useNavigate();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -41,7 +41,7 @@ const CarForm: React.FC = () => {
             setFabricante("");
             setPais("");
 
-            navigate("/home");  // Redireciona para a página Home (ou qualquer página que você desejar)
+            navigate("/home");
         } catch (error) {
             console.error("Error creating car:", error);
             alert("Erro ao cadastrar o carro.");

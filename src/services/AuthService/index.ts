@@ -18,7 +18,7 @@ export const loginUser = async (email: string, password: string): Promise<LoginR
             }
         );
 
-        return response.data; // Retorna o token no formato esperado
+        return response.data;
     } catch (error: any) {
         if (error.response) {
             console.error("Erro na API:", error.response.data);

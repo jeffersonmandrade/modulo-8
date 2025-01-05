@@ -20,11 +20,11 @@ const Home: React.FC = () => {
             <Box
                 sx={{
                     display: "flex",
-                    flex: 1,  // Para garantir que o conteúdo ocupe o restante da tela
+                    flex: 1,
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
-                    padding: "20px",  // Adicione algum padding se necessário
+                    padding: "20px",
                 }}
             >
                 <CarForm />
