@@ -3,6 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "proxy": "http://52.45.177.208:9041",
+
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -25,6 +27,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
+    "@types/node": "^22.10.5",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",

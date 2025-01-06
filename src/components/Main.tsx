@@ -26,7 +26,7 @@ const Main: React.FC<MainProps> = ({ drawerWidth }) => {
                 Lista de carros.
             </Typography>
             <RegisterButton />
-            <Table/>
+            <Table columns={[]}/>
         </Box>
     );
 };

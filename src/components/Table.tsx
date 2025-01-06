@@ -50,7 +50,7 @@ const Table: React.FC<TableProps> = () => {
 
     const fetchCars = async () => {
         try {
-            const response: never = await CarService.getAllCarsPages(page, size);
+            const response: any = await CarService.getAllCarsPages(page, size);
             setCars(response.data);
             setTotalCount(response.total);
         } catch (error) {

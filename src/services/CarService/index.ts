@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8080";
+const BASE_URL: string = "http://52.45.177.208:9041"
 
 export interface Car {
     id: number;
@@ -11,17 +11,22 @@ export interface Car {
     fabricante: string;
     pais: string;
 }
+interface PaginatedCarsResponse {
+    data: Car[];
+    total: number;
+}
+
 
 class CarService {
-    getAllCars(): Promise<Car[]> {
-        return axios.get<Car[]>(`${BASE_URL}/api/carros`).then((response) => response.data);
-    }
 
-    getCarById(id: number): Promise<Car> {
-        return axios.get<Car>(`${BASE_URL}/api/carros/${id}`).then((response) => response.data);
-    }
-
-    createCar(car: Omit<Car, "id">): Promise<Car> {
+    createCar(car: {
+        modelo: string;
+        ano: number | string;
+        cor: string;
+        cavalosDePotencia: number | string;
+        fabricante: string;
+        pais: string
+    }): Promise<Car> {
         return axios.post<Car>(`${BASE_URL}/api/carros`, car).then((response) => response.data);
     }
 
@@ -34,22 +39,20 @@ class CarService {
         return axios.delete(`${BASE_URL}/api/carros/${id}`).then(() => {});
     }
 
-    getAllCarsPages(page: number, size: number): Promise<Car[]> {
+    getAllCarsPages(page: number, size: number): Promise<PaginatedCarsResponse> {
         return axios
             .get<Car[]>(`${BASE_URL}/api/carros`, {
                 headers: {
-                    "page": page,
-                    "size": size,
+                    "page": page.toString(),
+                    "size": size.toString(),
                 },
             })
             .then((response) => {
-                const totalCount = response.headers['x-total-count'];
+                const totalCount = parseInt(response.headers['x-total-count'], 10);
                 return {
-                    data:response.data,
-                    total: totalCount
-                }
-
-
+                    data: response.data,
+                    total: totalCount,
+                };
             })
             .catch((error) => {
                 console.error("Error fetching cars:", error);

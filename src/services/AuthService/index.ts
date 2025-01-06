@@ -3,9 +3,11 @@ import axios from "axios";
 export interface LoginResponse {
     token: string;
 }
+const BASE_URL: string = "http://52.45.177.208:9041"
+
 
 export const loginUser = async (email: string, password: string): Promise<LoginResponse> => {
-    const url = "http://localhost:8080/api/usuarios/login";
+    const url = `${BASE_URL}/api/usuarios/login`;
 
     try {
         const response = await axios.post<LoginResponse>(

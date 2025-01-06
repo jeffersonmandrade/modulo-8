@@ -13,7 +13,7 @@ const Sidebar: React.FC = () => {
 
     useEffect(() => {
         const token = localStorage.getItem("token") || "";
-        const payload = JwtAuthService.decodeToken(token)
+        const payload: any = JwtAuthService.decodeToken(token)
         if (payload) {
             setEmail(payload["email"]);
         }
