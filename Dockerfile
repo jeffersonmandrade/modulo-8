@@ -1,8 +1,4 @@
-FROM node:latest
-COPY . /app
-ARG PORT=5173
-WORKDIR /app
-ENV PORT=$PORT
-EXPOSE $PORT
-RUN npm install
-ENTRYPOINT ["npm", "run", "dev"]
+FROM nginx:alpine
+COPY ./dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
